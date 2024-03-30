@@ -1,9 +1,9 @@
 import { fakerKO as faker } from "@faker-js/faker";
 
-import { comments } from "~/data/Comment.schema";
-import { posts } from "~/data/Post.schema";
-import { users } from "~/data/User.schema";
-import { getDatabase } from "~/drizzle/database";
+import { $comments } from "~/data/Comment.schema";
+import { $posts } from "~/data/Post.schema";
+import { $users } from "~/data/User.schema";
+import { getDatabase } from "~/data/database";
 
 seed();
 
@@ -11,7 +11,7 @@ async function seed() {
   const database = await getDatabase();
 
   const dummyUsers = await database
-    .insert(users)
+    .insert($users)
     .values([
       { name: faker.person.fullName() },
       { name: faker.person.fullName() },
@@ -20,7 +20,7 @@ async function seed() {
     .returning();
 
   const dummyPosts = await database
-    .insert(posts)
+    .insert($posts)
     .values(
       Array(30)
         .fill(null)
@@ -33,7 +33,7 @@ async function seed() {
     .returning();
 
   await database
-    .insert(comments)
+    .insert($comments)
     .values(
       Array(120)
         .fill(null)
