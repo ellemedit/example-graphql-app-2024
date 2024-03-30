@@ -1,9 +1,11 @@
-import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
+import { Pool } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-serverless";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 
-const sql = neon(process.env.DATABASE_CONNECTION_URL!);
-const database = drizzle(sql);
+const pool = new Pool({
+  connectionString: process.env.DATABASE_CONNECTION_URL!,
+});
+const database = drizzle(pool);
 
 let migrated = false;
 

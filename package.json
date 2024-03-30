@@ -7,9 +7,9 @@
     "lint": "next lint",
     "codegen": "graphql-codegen --config codegen.ts && bun format",
     "format": "prettier --write --ignore-unknown ./",
-    "migration:generate": "drizzle-kit generate",
+    "migration:generate": "drizzle-kit generate:pg",
     "migration:prototype": "drizzle-kit push:pg",
-    "migration:sync": "drizzle-kit sync:pg"
+    "seed": "bun ./drizzle.seed.ts"
   },
   "prettier": {
     "plugins": [
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@eddeee888/gcg-typescript-resolver-files": "^0.7.3",
+    "@faker-js/faker": "^8.4.1",
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/typescript": "4.0.6",
     "@graphql-codegen/typescript-document-nodes": "4.0.6",
