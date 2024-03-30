@@ -6,9 +6,9 @@ const config: CodegenConfig = {
   generates: {
     "src/resolvers": defineConfig({
       resolverRelativeTargetDir: "../../resolvers",
-      resolverTypesPath: "./generated/ResolverTypes.ts",
-      typeDefsFilePath: "./generated/TypeDefs.ts",
-      resolverMainFile: "./generated/Resolvers.ts",
+      resolverTypesPath: "./__generated__/ResolverTypes.ts",
+      typeDefsFilePath: "./__generated__/TypeDefs.ts",
+      resolverMainFile: "./__generated__/Resolvers.ts",
       scalarsModule: true,
       typesPluginsConfig: {
         strictScalars: true,

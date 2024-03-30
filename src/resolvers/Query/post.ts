@@ -1,4 +1,4 @@
-import type { QueryResolvers } from "./../generated/ResolverTypes";
+import type { QueryResolvers } from "./../__generated__/ResolverTypes";
 
 export const post: NonNullable<QueryResolvers["post"]> = async (
   _parent,

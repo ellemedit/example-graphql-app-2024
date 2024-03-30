@@ -1,4 +1,4 @@
-import type { QueryResolvers } from "./../generated/ResolverTypes";
+import type { QueryResolvers } from "./../__generated__/ResolverTypes";
 
 export const user: NonNullable<QueryResolvers["user"]> = async (
   _parent,

@@ -1,4 +1,4 @@
-import type { MutationResolvers } from "./../generated/ResolverTypes";
+import type { MutationResolvers } from "./../__generated__/ResolverTypes";
 
 export const test: NonNullable<MutationResolvers["test"]> = async (
   _parent,
