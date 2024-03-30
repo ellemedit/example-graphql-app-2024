@@ -5,6 +5,7 @@ export const comment: NonNullable<QueryResolvers["comment"]> = async (
   _arg,
   _ctx,
 ) => {
-  /* Implement Query.comment resolver logic here */
-  return null;
+  return {
+    id: Number(_arg.id),
+  };
 };

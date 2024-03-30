@@ -1,0 +1,155 @@
+{
+  "id": "24d827a7-c76d-47e4-b8dd-e241e06d80b5",
+  "prevId": "7febf4a7-4400-49c6-9068-886f54bc5e24",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "comments": {
+      "name": "comments",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "body": {
+          "name": "body",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "post_id": {
+          "name": "post_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "author_id": {
+          "name": "author_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "comments_post_id_posts_id_fk": {
+          "name": "comments_post_id_posts_id_fk",
+          "tableFrom": "comments",
+          "tableTo": "posts",
+          "columnsFrom": ["post_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "comments_author_id_users_id_fk": {
+          "name": "comments_author_id_users_id_fk",
+          "tableFrom": "comments",
+          "tableTo": "users",
+          "columnsFrom": ["author_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "posts": {
+      "name": "posts",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(512)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "body": {
+          "name": "body",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "author_id": {
+          "name": "author_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "posts_author_id_users_id_fk": {
+          "name": "posts_author_id_users_id_fk",
+          "tableFrom": "posts",
+          "tableTo": "users",
+          "columnsFrom": ["author_id"],
+          "columnsTo": ["id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

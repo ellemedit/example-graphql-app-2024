@@ -1,5 +1,6 @@
 import { createSchema, createYoga } from "graphql-yoga";
 
+import { createGraphQLContext } from "~/resolvers/GraphQLContext";
 import { resolvers } from "~/resolvers/__generated__/Resolvers";
 import { typeDefs } from "~/resolvers/__generated__/TypeDefs";
 
@@ -8,6 +9,9 @@ const { handleRequest } = createYoga({
     typeDefs,
     resolvers,
   }),
+  context: () => {
+    return createGraphQLContext();
+  },
   graphqlEndpoint: "/api/graphql",
   fetchAPI: { Response },
 });

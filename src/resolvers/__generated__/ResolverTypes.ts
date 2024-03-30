@@ -4,6 +4,11 @@ import type {
   GraphQLScalarTypeConfig,
 } from "graphql";
 
+import type { GraphQLContext } from "../GraphQLContext.ts";
+import type { CommentMapper } from "./../../../schema/Comment.mappers";
+import type { PostMapper } from "./../../../schema/Post.mappers";
+import type { UserMapper } from "./../../../schema/User.mappers";
+
 export type Maybe<T> = T | null | undefined;
 export type InputMaybe<T> = T | null | undefined;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -198,34 +203,34 @@ export type DirectiveResolverFn<
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Comment: ResolverTypeWrapper<Comment>;
+  Comment: ResolverTypeWrapper<CommentMapper>;
   String: ResolverTypeWrapper<Scalars["String"]["output"]>;
   ID: ResolverTypeWrapper<Scalars["ID"]["output"]>;
   DateTime: ResolverTypeWrapper<Scalars["DateTime"]["output"]>;
   Mutation: ResolverTypeWrapper<{}>;
-  Post: ResolverTypeWrapper<Post>;
+  Post: ResolverTypeWrapper<PostMapper>;
   Query: ResolverTypeWrapper<{}>;
-  User: ResolverTypeWrapper<User>;
+  User: ResolverTypeWrapper<UserMapper>;
   Void: ResolverTypeWrapper<Scalars["Void"]["output"]>;
   Boolean: ResolverTypeWrapper<Scalars["Boolean"]["output"]>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Comment: Comment;
+  Comment: CommentMapper;
   String: Scalars["String"]["output"];
   ID: Scalars["ID"]["output"];
   DateTime: Scalars["DateTime"]["output"];
   Mutation: {};
-  Post: Post;
+  Post: PostMapper;
   Query: {};
-  User: User;
+  User: UserMapper;
   Void: Scalars["Void"]["output"];
   Boolean: Scalars["Boolean"]["output"];
 };
 
 export type CommentResolvers<
-  ContextType = any,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes["Comment"] = ResolversParentTypes["Comment"],
 > = {
@@ -243,7 +248,7 @@ export interface DateTimeScalarConfig
 }
 
 export type MutationResolvers<
-  ContextType = any,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes["Mutation"] = ResolversParentTypes["Mutation"],
 > = {
@@ -251,7 +256,7 @@ export type MutationResolvers<
 };
 
 export type PostResolvers<
-  ContextType = any,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes["Post"] = ResolversParentTypes["Post"],
 > = {
@@ -269,7 +274,7 @@ export type PostResolvers<
 };
 
 export type QueryResolvers<
-  ContextType = any,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes["Query"] = ResolversParentTypes["Query"],
 > = {
@@ -304,7 +309,7 @@ export type QueryResolvers<
 };
 
 export type UserResolvers<
-  ContextType = any,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes["User"] = ResolversParentTypes["User"],
 > = {
@@ -328,7 +333,7 @@ export interface VoidScalarConfig
   name: "Void";
 }
 
-export type Resolvers<ContextType = any> = {
+export type Resolvers<ContextType = GraphQLContext> = {
   Comment?: CommentResolvers<ContextType>;
   DateTime?: GraphQLScalarType;
   Mutation?: MutationResolvers<ContextType>;

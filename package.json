@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.0",
+    "dataloader": "^2.2.2",
     "drizzle-orm": "^0.30.6",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.23.0",

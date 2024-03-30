@@ -18,6 +18,7 @@ const config: CodegenConfig = {
         enumsAsConst: true,
         immutableTypes: true,
         useTypeImports: true,
+        contextType: "../GraphQLContext.ts#GraphQLContext",
       },
     }),
   },

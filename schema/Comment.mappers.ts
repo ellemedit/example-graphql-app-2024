@@ -1,7 +1,3 @@
-// export interface CommentMapper {
-//   id: string;
-//   content: string;
-//   authorId: string;
-//   postId: string;
-//   createdAt: Date;
-// }
+export interface CommentMapper {
+  id: number;
+}

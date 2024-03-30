@@ -15,6 +15,13 @@
       "when": 1711787992181,
       "tag": "0001_overrated_black_knight",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1711792994074,
+      "tag": "0002_empty_living_tribunal",
+      "breakpoints": true
     }
   ]
 }
