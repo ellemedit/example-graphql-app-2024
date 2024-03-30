@@ -10,7 +10,7 @@ extend type User {
 type Post {
   id: ID!
   title: String!
-  content: String!
+  body: String!
   author: User!
   createdAt: DateTime!
 }

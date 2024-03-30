@@ -13,8 +13,8 @@ extend type User {
 
 type Comment {
   id: ID!
+  body: String!
   post: Post!
-  content: String!
   author: User!
   createdAt: DateTime!
 }

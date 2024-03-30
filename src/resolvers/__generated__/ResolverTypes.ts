@@ -41,7 +41,7 @@ export type Scalars = {
 export type Comment = {
   readonly __typename: "Comment";
   readonly author: User;
-  readonly content: Scalars["String"]["output"];
+  readonly body: Scalars["String"]["output"];
   readonly createdAt: Scalars["DateTime"]["output"];
   readonly id: Scalars["ID"]["output"];
   readonly post: Post;
@@ -55,8 +55,8 @@ export type Mutation = {
 export type Post = {
   readonly __typename: "Post";
   readonly author: User;
+  readonly body: Scalars["String"]["output"];
   readonly comments: ReadonlyArray<Comment>;
-  readonly content: Scalars["String"]["output"];
   readonly createdAt: Scalars["DateTime"]["output"];
   readonly id: Scalars["ID"]["output"];
   readonly title: Scalars["String"]["output"];
@@ -76,6 +76,10 @@ export type QuerycommentArgs = {
 };
 
 export type QuerypostArgs = {
+  id: Scalars["ID"]["input"];
+};
+
+export type QueryuserArgs = {
   id: Scalars["ID"]["input"];
 };
 
@@ -226,7 +230,7 @@ export type CommentResolvers<
     ResolversParentTypes["Comment"] = ResolversParentTypes["Comment"],
 > = {
   author?: Resolver<ResolversTypes["User"], ParentType, ContextType>;
-  content?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  body?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>;
   id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>;
   post?: Resolver<ResolversTypes["Post"], ParentType, ContextType>;
@@ -252,12 +256,12 @@ export type PostResolvers<
     ResolversParentTypes["Post"] = ResolversParentTypes["Post"],
 > = {
   author?: Resolver<ResolversTypes["User"], ParentType, ContextType>;
+  body?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   comments?: Resolver<
     ReadonlyArray<ResolversTypes["Comment"]>,
     ParentType,
     ContextType
   >;
-  content?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes["DateTime"], ParentType, ContextType>;
   id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>;
   title?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
@@ -291,7 +295,12 @@ export type QueryResolvers<
     ParentType,
     ContextType
   >;
-  user?: Resolver<Maybe<ResolversTypes["User"]>, ParentType, ContextType>;
+  user?: Resolver<
+    Maybe<ResolversTypes["User"]>,
+    ParentType,
+    ContextType,
+    RequireFields<QueryuserArgs, "id">
+  >;
 };
 
 export type UserResolvers<
