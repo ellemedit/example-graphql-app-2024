@@ -1,0 +1,8 @@
+type Query
+type Mutation {
+  test: Void
+}
+
+scalar ID
+scalar DateTime
+scalar Void
